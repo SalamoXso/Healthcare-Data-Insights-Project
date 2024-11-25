@@ -260,3 +260,17 @@ elif analysis_option == "Length of Stay Analysis":
                  title="Top 10 Conditions with Longest Average Length of Stay")
     fig.update_layout(xaxis_title="Medical Condition", yaxis_title="Average Length of Stay (Days)")
     st.plotly_chart(fig, use_container_width=True)
+
+
+    st.markdown("---")  # Separator line
+st.markdown(
+    """
+    <div style="text-align: center; font-size: 14px;">
+        Created with ❤️ by <a href="https://github.com/SalamoXso" target="_blank" style="text-decoration: none; color: #3498db;">SalamoXso</a>
+    </div>
+    <div style="text-align: center; font-size: 14px;">
+        Freelancer.com Profile  <a href="https://www.freelancer.com/u/salamomakouf1994" target="_blank" style="text-decoration: none; color: #3498db;">SalamoXso</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
