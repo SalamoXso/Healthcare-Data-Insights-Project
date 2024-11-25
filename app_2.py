@@ -130,7 +130,7 @@ if analysis_option == "Overview":
 
 # Patient Demographics
 elif analysis_option == "Patient Demographics":
-    st.header("Patient Demographics")
+    
     
     col1, col2 = st.columns(2)
     
@@ -151,7 +151,7 @@ elif analysis_option == "Patient Demographics":
 
 # Medical Conditions
 elif analysis_option == "Medical Conditions":
-    st.header("Medical Conditions Analysis")
+    
     
     top_n = st.slider("Select number of top conditions to display", 5, 20, 10)
     
@@ -174,7 +174,7 @@ elif analysis_option == "Medical Conditions":
 
 # Timeline Analysis
 elif analysis_option == "Timeline Analysis":
-    st.header("Timeline Analysis")
+    
     
     # Monthly admissions
     monthly_admissions = data['Date of Admission'].dt.to_period('M').value_counts().sort_index()
@@ -197,7 +197,7 @@ elif analysis_option == "Timeline Analysis":
 # Treatment Analysis
 # Treatment Analysis
 elif analysis_option == "Treatment Analysis":
-    st.header("Treatment Analysis")
+    
     
     col1, col2 = st.columns(2)
     
@@ -228,7 +228,7 @@ elif analysis_option == "Treatment Analysis":
 
     #Length of Stay Analysis
 elif analysis_option == "Length of Stay Analysis":
-    st.header("Length of Stay Analysis")
+    
 
     # Distribution of Length of Stay
     st.subheader("Distribution of Length of Stay")
