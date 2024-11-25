@@ -266,7 +266,7 @@ st.markdown("---")  # Separator line
 st.markdown(
     """
     <div style="text-align: center; font-size: 14px;">
-        Created with ❤️ by <a href="https://github.com/SalamoXso" target="_blank" style="text-decoration: none; color: #3498db;">SalamoXso</a>
+        Created with by <a href="https://github.com/SalamoXso" target="_blank" style="text-decoration: none; color: #3498db;">SalamoXso</a>
     </div>
     <div style="text-align: center; font-size: 14px;">
         Freelancer.com Profile  <a href="https://www.freelancer.com/u/salamomakouf1994" target="_blank" style="text-decoration: none; color: #3498db;">SalamoXso</a>
@@ -279,7 +279,7 @@ st.markdown(
 st.sidebar.markdown("---")
 st.sidebar.markdown(
     """
-    **App by Your Name**  
+    **App by SalamoXso**  
     [Freelancer.com](https://www.freelancer.com/u/salamomakouf1994) | [GitHub](https://github.com/SalamoXso) | [LinkedIn](https://www.linkedin.com/in/salamo-makouf-25b264189/)
     """
 )
