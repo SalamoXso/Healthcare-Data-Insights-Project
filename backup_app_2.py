@@ -9,58 +9,16 @@ from wordcloud import WordCloud
 # Set page config as the first Streamlit command
 st.set_page_config(page_title="Healthcare Data Insights Dashboard", layout="wide")
 
-# Function to clean and validate the uploaded data
-@st.cache_data
-def clean_data(data):
-    try:
-        # Ensure necessary columns exist
-        required_columns = ["Date of Admission", "Discharge Date", "Age", "Gender", "Medical Condition", "Medication"]
-        for col in required_columns:
-            if col not in data.columns:
-                raise ValueError(f"Missing required column: {col}")
-        
-        # Convert dates to datetime
-        data['Date of Admission'] = pd.to_datetime(data['Date of Admission'], errors='coerce')
-        data['Discharge Date'] = pd.to_datetime(data['Discharge Date'], errors='coerce')
-
-        # Drop rows with invalid dates
-        data = data.dropna(subset=['Date of Admission', 'Discharge Date'])
-
-        # Calculate Length of Stay
-        data['Length of Stay (Days)'] = (data['Discharge Date'] - data['Date of Admission']).dt.days
-
-        # Ensure non-negative Length of Stay
-        data = data[data['Length of Stay (Days)'] >= 0]
-
-        # Clean other columns (e.g., remove empty values, normalize text)
-        data['Medical Condition'] = data['Medical Condition'].fillna("Unknown").str.strip()
-        data['Medication'] = data['Medication'].fillna("Unknown").str.strip()
-
-        return data
-    except Exception as e:
-        st.error(f"Error while cleaning data: {e}")
-        return None
-
-# Load data (from upload or default)
-def load_data():
-    uploaded_file = st.sidebar.file_uploader("Upload CSV File", type=["csv"])
-    if uploaded_file is not None:
-        try:
-            data = pd.read_csv(uploaded_file)
-            data = clean_data(data)
-            if data is not None:
-                st.sidebar.success("File uploaded and cleaned successfully!")
-                return data
-        except Exception as e:
-            st.sidebar.error(f"Error reading uploaded file: {e}")
-    else:
-        # Fallback to default dataset
-        file_path = "cleaned_healthcare_data.csv"
-        data = pd.read_csv(file_path)
-        data = clean_data(data)
-        return data
-
 # Load the dataset
+@st.cache_data
+def load_data():
+    file_path = "cleaned_healthcare_data.csv"  # Update with the correct path if necessary
+    data = pd.read_csv(file_path)
+    data['Date of Admission'] = pd.to_datetime(data['Date of Admission'])
+    data['Discharge Date'] = pd.to_datetime(data['Discharge Date'])
+    data['Length of Stay (Days)'] = (data['Discharge Date'] - data['Date of Admission']).dt.days
+    return data
+
 data = load_data()
 
 # Streamlit UI
@@ -79,37 +37,6 @@ analysis_option = st.sidebar.selectbox(
         "Length of Stay Analysis"
     ]
 )
-
-# Ensure data is loaded before proceeding
-if data is not None:
-    # Insert the rest of your analysis code here, as in your provided example
-    # For brevity, I'll use placeholders below:
-    if analysis_option == "Overview":
-        st.header("Overview of Healthcare Data")
-        # Overview analysis code...
-
-    elif analysis_option == "Patient Demographics":
-        st.header("Patient Demographics")
-        # Patient demographics analysis code...
-
-    elif analysis_option == "Medical Conditions":
-        st.header("Medical Conditions Analysis")
-        # Medical conditions analysis code...
-
-    elif analysis_option == "Timeline Analysis":
-        st.header("Timeline Analysis")
-        # Timeline analysis code...
-
-    elif analysis_option == "Treatment Analysis":
-        st.header("Treatment Analysis")
-        # Treatment analysis code...
-
-    elif analysis_option == "Length of Stay Analysis":
-        st.header("Length of Stay Analysis")
-        # Length of Stay analysis code...
-else:
-    st.warning("No valid data available for analysis. Please upload a CSV file.")
-
 
 # Overview
 if analysis_option == "Overview":
