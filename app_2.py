@@ -113,7 +113,7 @@ else:
 
 # Overview
 if analysis_option == "Overview":
-    st.header("Overview of Healthcare Data")
+    
     
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Total Patients", len(data))
