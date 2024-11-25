@@ -262,7 +262,7 @@ elif analysis_option == "Length of Stay Analysis":
     st.plotly_chart(fig, use_container_width=True)
 
 
-    st.markdown("---")  # Separator line
+st.markdown("---")  # Separator line
 st.markdown(
     """
     <div style="text-align: center; font-size: 14px;">
@@ -273,4 +273,13 @@ st.markdown(
     </div>
     """,
     unsafe_allow_html=True
+)
+
+
+st.sidebar.markdown("---")
+st.sidebar.markdown(
+    """
+    **App by Your Name**  
+    [Freelancer.com](https://www.freelancer.com/u/salamomakouf1994) | [GitHub](https://github.com/SalamoXso) | [LinkedIn](https://www.linkedin.com/in/salamo-makouf-25b264189/)
+    """
 )
