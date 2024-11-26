@@ -85,13 +85,13 @@ Columns include:
 ## **Screenshots**
 
 ### Demographic Analysis  
-![Demographic Analysis](path-to-screenshot1.png)
+![Demographic Analysis](demographic.JPG)
 
 ### Timeline Analysis  
-![Timeline Analysis](path-to-screenshot2.png)
+![Timeline Analysis](Timeline.JPG)
 
 ### Treatment Analysis  
-![Treatment Analysis](path-to-screenshot3.png)
+![Treatment Analysis](Treatment.JPG)
 
 ---
 
