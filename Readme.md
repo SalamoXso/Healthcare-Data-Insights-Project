@@ -107,9 +107,6 @@ Contributions are welcome! To contribute:
 ## **License**
 
 This project is licensed under the [MIT License](LICENSE).
----
-```bash
-  
-Copying this into a `.md` file or GitHub repository will render it with proper headers, lists, and formatting. Let me know if you need further assistance!
+
 
 
